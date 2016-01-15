@@ -1,0 +1,17 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+.flex {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.flex img {
+	width: calc(100% / 6);
+}
