@@ -1,17 +1,47 @@
-html, body {
+@import url(animate.min.css);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+.html {
 	margin: 0;
 	padding: 0;
+	height: 100vh;
 }
 
-.flex {
+.body {
+	background-color: #FFD54F;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.posts {
+	position: relative;
+	width: 100%;
+	height: 100%;
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-flex-direction: column;
-	-ms-flex-direction: column;
-	flex-direction: column;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
 }
 
-.flex img {
-	width: calc(100% / 6);
+.post {
+	width: 35vw;
+	background-color: #EEEEEE;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.post--hidden {
+	display: none;
+}
+
+.post__image {
+	width: 35vw;
+}
+
+.post__caption {
+	padding: 10px;
+	text-align: center;
 }

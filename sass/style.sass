@@ -1,10 +1,40 @@
-html, body
+@import url(animate.min.css)
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300)
+
+$yellow: #FFD54F
+$grey: #212121
+$white: #EEEEEE
+
+.html
     margin: 0
     padding: 0
+    height: 100vh
 
-.flex
+.body
+    background-color: $yellow
+    font-family: 'Open Sans', sans-serif
+
+.posts
+    position: relative
+    width: 100%
+    height: 100%
+
     display: flex
-    flex-direction: column
+    justify-content: center
+    align-items: center
 
-    img
-        width: calc(100% / 6)
+.post
+    width: 35vw
+    background-color: $white
+    border-radius: 10px
+    overflow: hidden
+
+.post--hidden
+    display: none
+
+.post__image
+    width: 35vw
+
+.post__caption
+    padding: 10px
+    text-align: center
