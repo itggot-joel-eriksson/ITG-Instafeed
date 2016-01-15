@@ -15,12 +15,12 @@ $(document).ready(function() {
     function do_urls() {
         time += 1;
 
-        $(".post__caption").linky({
+        /*$(".post__caption").linky({
             mentions: true,
             hashtags: false,
             urls: true,
             linkTo: "instagram"
-        });
+        });*/
 
         if (time === 0) {
             n = 0;
