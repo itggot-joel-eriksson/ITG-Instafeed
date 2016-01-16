@@ -1,5 +1,9 @@
-@import url(animate.min.css);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+@import url("animate.min.css");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300");
+:root {
+	font-size: 16px;
+}
+
 .html {
 	margin: 0;
 	padding: 0;
@@ -8,7 +12,11 @@
 
 .body {
 	background-color: #FFD54F;
+	color: #212121;
 	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	overflow: hidden;
+	transition: background-color .5s;
 }
 
 .posts {
@@ -27,21 +35,60 @@
 }
 
 .post {
-	width: 35vw;
 	background-color: #EEEEEE;
 	border-radius: 10px;
 	overflow: hidden;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23);
+}
+
+.post__header {
+	margin: 0;
+	padding: 5px;
+	background-color: #FAFAFA;
+	font-size: 1.5rem;
+	letter-spacing: 5px;
+	text-indent: 5px;
+	text-align: center;
+}
+
+.post--active {
+	display: block;
 }
 
 .post--hidden {
 	display: none;
 }
 
-.post__image {
-	width: 35vw;
+.post, .post__image {
+	width: 75vw;
 }
 
 .post__caption {
 	padding: 10px;
+	font-size: 1.2rem;
+	letter-spacing: 3px;
+	text-indent: 3px;
 	text-align: center;
+	line-height: 2rem;
+}
+
+.post__caption--mention, .post__caption--hashtag {
+	padding: 1px;
+	margin: 1px;
+	border-radius: 5px;
+	background-color: #e1e1e1;
+}
+
+.credit {
+	position: fixed;
+	top: 10;
+	left: 10;
+	color: #212121;
+	transition: color .5s;
+}
+
+@media (min-width: 800px) {
+	.post, .post__image {
+		width: 35vw;
+	}
 }
