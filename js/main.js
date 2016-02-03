@@ -1,4 +1,6 @@
-var color = 0,
+var postLimit = 5,
+    color = 0,
+    wait = 7,
     colors = [
         "#1A8CCD",
         "#DC006E",
@@ -31,14 +33,16 @@ function showPost(n) {
     $(".post:not(.post--active)").addClass(hideAnimation).removeClass(showAnimation);
 
     setTimeout(function() {
-        $(".post:not(.post--active)").hide();
+        $(".post:not(.post:nth(" + n + "))").hide();
         $(".post:nth(" + n + ")").show().removeClass(hideAnimation).addClass(showAnimation).addClass("post--active");
     }, 300);
 
     $(".body").css("background-color", colors[color]);
-    $(".credit").css("color", shadeBlend(-0.3, colors[color]));
+    $(".account").css("color", shadeBlend(-0.3, colors[color]));
 
     color = (colors.length - 1 === color) ? 0 : color + 1;
+
+    return n + 1;
 }
 
 $(document).ready(function() {
@@ -47,17 +51,17 @@ $(document).ready(function() {
             clientId: "467ede5a6b9b48ae8e03f4e2582aeeb3",
             get: "user",
             userId: "510446258", //http://jelled.com/instagram/lookup-user-id#
-            limit: 5,
+            limit: postLimit,
             target: "feed",
             resolution: "standard_resolution",
-            template: '<div class="post post--hidden animated"><img src="{{image}}" alt="{{caption}}" draggable="false" class="post__image" /><p class="post__caption">{{caption}}</p></div>',
+            template: '<div class="post post--hidden animated section group"><div class="col span_1_of_2"><img src="{{image}}" alt="{{model.user.username}}" draggable="false" class="post__image" /></div><div class="col span_1_of_2"><p class="post__caption">{{caption}}</p></div></div>',
             after: function() {
                 $(".post__caption").each(function(current) {
                     caption = $(this).text();
                     $(this).html(caption.linkify());
                 });
 
-                showPost(0);
+                do_urls();
             }
         });
         feed.run();
@@ -68,30 +72,12 @@ $(document).ready(function() {
     var time = 0,
         n = 0;
     function do_urls() {
-        time += 1;
-
-        if (time === 0) {
+        n = showPost(n);
+        if (n >= postLimit) {
             n = 0;
-            showPost(n);
-        } else if (time === 5) {
-            n = 1;
-            showPost(n);
-        } else if (time === 10) {
-            n = 2;
-            showPost(n);
-        } else if (time === 15) {
-            n = 3;
-            showPost(n);
-        } else if (time === 20) {
-            n = 4;
-            showPost(n);
-        } else if (time === 25) {
-            time = 0;
-            n = 0;
-            showPost(n);
         }
     }
 
-    url_interval = setInterval(do_urls, 1000);
+    url_interval = setInterval(do_urls, (wait * 1000));
     $("body").css("background-color", colors[0]);
 });

@@ -1,4 +1,5 @@
 @import url("animate.min.css")
+@import url("grid.css")
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300")
 
 $blue: #1E88E5
@@ -32,10 +33,15 @@ $white: #EEEEEE
     align-items: center
 
 .post
-    background-color: $white
+    background-color: #FFFFFF
     border-radius: 10px
     overflow: hidden
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 5px 0 rgba(0,0,0,.23)
+
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: row
 
 .post__header
     margin: 0
@@ -54,8 +60,13 @@ $white: #EEEEEE
 
 .post, .post__image
     width: 75vw
+    float: left
+
+    display: flex
 
 .post__caption
+    height: 100%
+    margin: 5px
     padding: 10px
     font-size: 1.2rem
     letter-spacing: 3px
@@ -69,7 +80,7 @@ $white: #EEEEEE
     border-radius: 5px
     background-color: darken($white, 5)
 
-.credit
+.account
     position: fixed
     top: 10
     left: 10
@@ -77,5 +88,5 @@ $white: #EEEEEE
     transition: color .5s
 
 @media (min-width: 800px)
-    .post, .post__image
-        width: 35vw
+    .post__image
+        width: 35.5vw

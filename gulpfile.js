@@ -25,7 +25,7 @@ gulp.task("sass", function() {
 gulp.task("autoprefix", function() {
     gulp.src("css/*.css")
         .pipe(autoprefixer({
-            browsers: ["last 3 versions"],
+            browsers: ["last 5 versions"],
             cascade: false
         }))
         .pipe(gulp.dest("css"));
