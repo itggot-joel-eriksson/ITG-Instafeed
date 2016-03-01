@@ -112,9 +112,7 @@
 	position: fixed;
 	top: 10;
 	left: 10;
-	color: #212121;
-	-webkit-transition: color .5s;
-	transition: color .5s;
+	color: #EEEEEE;
 }
 
 @media (min-width: 800px) {
