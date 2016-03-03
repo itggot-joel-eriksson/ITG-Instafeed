@@ -1,25 +1,26 @@
-@import url("animate.min.css")
-@import url("grid.css")
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300")
+@import url(animate.min.css)
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300)
 
-$blue: #1E88E5
-$yellow: #FFD54F
+$blue: #125688
+$red: #EF5350
 $grey: #212121
 $white: #EEEEEE
 
 :root
-    font-size: 16px
+    font-size: 20px
+    font-family: 'Open Sans', sans-serif
+    font-weight: 400
 
 .html
-    margin: 0
-    padding: 0
     height: 100vh
 
+.html, .body
+    margin: 0
+    padding: 0
+
 .body
-    background-color: $yellow
+    background-color: $red
     color: $grey
-    font-family: 'Open Sans', sans-serif
-    font-weight: 300
     overflow: hidden
     transition: background-color .5s
 
@@ -42,15 +43,6 @@ $white: #EEEEEE
     justify-content: center
     align-items: center
     flex-direction: row
-
-.post__header
-    margin: 0
-    padding: 5px
-    background-color: #FAFAFA
-    font-size: 1.5rem
-    letter-spacing: 5px
-    text-indent: 5px
-    text-align: center
 
 .post--active
     display: block
@@ -82,9 +74,57 @@ $white: #EEEEEE
 
 .account
     position: fixed
-    top: 10
-    left: 10
-    color: $white
+    left: 10px
+    padding: 5px
+    background-color: #FFFFFF
+    font-size: 1.25rem
+    text-align: center
+    border-radius: 5px
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 5px 0 rgba(0,0,0,.23)
+
+.account__avatar
+    width: 40px
+    vertical-align: middle
+    border-radius: 50%
+
+.time
+    position: fixed
+    right: 10px
+    padding: 5px
+    background-color: #FFFFFF
+    font-size: 1.25rem
+    text-align: center
+    border-radius: 5px
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 5px 0 rgba(0,0,0,.23)
+
+.time__now--separator
+    animation: clock .5s linear infinite alternate
+
+.footer
+    position: fixed
+    bottom: 5px
+    right: 5px
+    padding: 5px
+    background-color: #FFFFFF
+    font-size: 0.4rem
+    border-radius: 5px
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 5px 0 rgba(0,0,0,.23)
+
+.fa-instagram
+    color: $blue
+
+.fa-heart
+    color: $red
+
+.fa-clock-o
+    color: #2E7D32
+
+@keyframes clock
+    0%
+        color: $grey
+
+    100%
+        color: transparent
 
 @media (min-width: 800px)
     .post__image

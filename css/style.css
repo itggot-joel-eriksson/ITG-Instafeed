@@ -1,21 +1,23 @@
-@import url("animate.min.css");
-@import url("grid.css");
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300");
+@import url(animate.min.css);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
 :root {
-	font-size: 16px;
+	font-size: 20px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
 }
 
 .html {
-	margin: 0;
-	padding: 0;
 	height: 100vh;
 }
 
+.html, .body {
+	margin: 0;
+	padding: 0;
+}
+
 .body {
-	background-color: #FFD54F;
+	background-color: #EF5350;
 	color: #212121;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 300;
 	overflow: hidden;
 	-webkit-transition: background-color .5s;
 	transition: background-color .5s;
@@ -63,16 +65,6 @@
 	flex-direction: row;
 }
 
-.post__header {
-	margin: 0;
-	padding: 5px;
-	background-color: #FAFAFA;
-	font-size: 1.5rem;
-	letter-spacing: 5px;
-	text-indent: 5px;
-	text-align: center;
-}
-
 .post--active {
 	display: block;
 }
@@ -110,9 +102,76 @@
 
 .account {
 	position: fixed;
-	top: 10;
-	left: 10;
-	color: #EEEEEE;
+	left: 10px;
+	padding: 5px;
+	background-color: #FFFFFF;
+	font-size: 1.25rem;
+	text-align: center;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23);
+}
+
+.account__avatar {
+	width: 40px;
+	vertical-align: middle;
+	border-radius: 50%;
+}
+
+.time {
+	position: fixed;
+	right: 10px;
+	padding: 5px;
+	background-color: #FFFFFF;
+	font-size: 1.25rem;
+	text-align: center;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23);
+}
+
+.time__now--separator {
+	-webkit-animation: clock .5s linear infinite alternate;
+	animation: clock .5s linear infinite alternate;
+}
+
+.footer {
+	position: fixed;
+	bottom: 5px;
+	right: 5px;
+	padding: 5px;
+	background-color: #FFFFFF;
+	font-size: 0.4rem;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23);
+}
+
+.fa-instagram {
+	color: #125688;
+}
+
+.fa-heart {
+	color: #EF5350;
+}
+
+.fa-clock-o {
+	color: #2E7D32;
+}
+
+@-webkit-keyframes clock {
+	0% {
+		color: #212121;
+	}
+	100% {
+		color: transparent;
+	}
+}
+
+@keyframes clock {
+	0% {
+		color: #212121;
+	}
+	100% {
+		color: transparent;
+	}
 }
 
 @media (min-width: 800px) {

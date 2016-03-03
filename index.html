@@ -8,6 +8,7 @@
         <!-- JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="js/instafeed.min.js"></script>
+        <script src="js/moment.min.js"></script>
         <script src="js/main.js"></script>
 
         <!-- CSS -->
@@ -15,13 +16,20 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     </head>
     <body class="html body">
-        <div class="account">
-            <p>
-                <span class="fa fa-instagram fa-lg"></span><span class="account__name">@itgymnasietgoteborg</span>
-            </p>
-        </div>
+        <h1 class="account">
+            <span class="fa fa-instagram fa-lg"></span> <span class="account__name"></span> <img class="account__avatar" />
+        </h1>
+        <h1 class="time">
+            <span class="fa fa-clock-o"></span> <span class="time__now--hour">13</span><span class="time__now--separator">:</span><span class="time__now--minute">37</span>
+        </h1>
         <div class="posts">
             <div id="feed"></div>
+        </div>
+        <h1 class="footer">
+            Gjord med <span class="fa fa-heart"></span> av Joel Eriksson
+        </h1>
+        <div class="progress">
+            <div class="progress__bar"></div>
         </div>
     </body>
 </html>
