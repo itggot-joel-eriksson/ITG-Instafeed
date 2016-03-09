@@ -18,26 +18,27 @@ String.prototype.linkify = function() {
     return str.replace(/(^|\s)#(\w+)/g, '$1<span class="post__caption--hashtag">#$2</span>');
 };
 
+var feed = new Instafeed({
+    clientId: "467ede5a6b9b48ae8e03f4e2582aeeb3",
+    get: "user",
+    userId: "510446258",
+    limit: postLimit,
+    target: "feed",
+    resolution: "standard_resolution",
+    template: '<div class="post post--hidden animated" data-insta-profile="{{model.user.username}}" data-insta-avatar="{{model.user.profile_picture}}"><img src="{{image}}" alt="{{model.user.username}}" draggable="false" class="post__image" /><p class="post__caption">{{caption}}</p></div>',
+    after: function() {
+        $(".post:not(.post:nth(0))").hide();
+
+        $(".post__caption").each(function(current) {
+            caption = $(this).html();
+            $(this).html(caption.linkify());
+        });
+
+        do_urls();
+    }
+});
+
 function getInstafeed() {
-    var feed = new Instafeed({
-        clientId: "467ede5a6b9b48ae8e03f4e2582aeeb3",
-        get: "user",
-        userId: "510446258", //http://jelled.com/instagram/lookup-user-id#
-        limit: postLimit,
-        target: "feed",
-        resolution: "standard_resolution",
-        template: '<div class="post post--hidden animated" data-insta-profile="{{model.user.username}}" data-insta-avatar="{{model.user.profile_picture}}"><img src="{{image}}" alt="{{model.user.username}}" draggable="false" class="post__image" /><p class="post__caption">{{caption}}</p></div>',
-        after: function() {
-            $(".post:not(.post:nth(0))").hide();
-
-            $(".post__caption").each(function(current) {
-                caption = $(this).html();
-                $(this).html(caption.linkify());
-            });
-
-            do_urls();
-        }
-    });
     feed.run();
 }
 
