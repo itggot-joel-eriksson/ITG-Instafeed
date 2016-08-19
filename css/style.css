@@ -19,7 +19,6 @@
 	background-color: #EF5350;
 	color: #212121;
 	overflow: hidden;
-	-webkit-transition: background-color .5s;
 	transition: background-color .5s;
 }
 
@@ -27,15 +26,12 @@
 	position: relative;
 	width: 100%;
 	height: 100%;
-	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: center;
 	-webkit-justify-content: center;
 	-ms-flex-pack: center;
 	justify-content: center;
-	-webkit-box-align: center;
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
@@ -46,20 +42,15 @@
 	border-radius: 10px;
 	overflow: hidden;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23);
-	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: center;
 	-webkit-justify-content: center;
 	-ms-flex-pack: center;
 	justify-content: center;
-	-webkit-box-align: center;
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
 	-webkit-flex-direction: row;
 	-ms-flex-direction: row;
 	flex-direction: row;
@@ -74,21 +65,19 @@
 }
 
 .post {
-	width: 75vw;
-	display: -webkit-box;
+	max-width: 75vw;
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
 }
 
 .post__image {
-	min-width: 50%;
+	min-width: calc(50% + 20px);
 	float: left;
 }
 
 .post__caption {
 	height: 100%;
-	min-width: -webkit-calc(50% - 20px);
 	min-width: calc(50% - 20px);
 	margin: 5px;
 	padding: 10px;
@@ -99,7 +88,7 @@
 	line-height: 2rem;
 }
 
-.post__caption--mention, .post__caption--hashtag {
+.mention, .hashtag {
 	padding: 1px;
 	margin: 1px;
 	border-radius: 5px;

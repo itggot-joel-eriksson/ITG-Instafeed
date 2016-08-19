@@ -1,45 +1,39 @@
-var postLimit = 7,
-    color = 0,
-    instaInterval,
-    clockInterval,
-    wait = 10,
-    colors = [
-        "rgb(239,83,80)",
-        "rgb(255,202,40)",
-        "rgb(26,140,205)",
-        "rgb(220,0,110)",
-        "rgb(238,130,47)",
-        "rgb(156,39,176)",
-        "rgb(76,175,80)"
-    ];
+var postLimit = 7;
+var color = 0;
+var instaInterval;
+var clockInterval;
+var wait = 10;
+var colors = [
+    "rgb(239,83,80)",
+    "rgb(255,202,40)",
+    "rgb(26,140,205)",
+    "rgb(220,0,110)",
+    "rgb(238,130,47)",
+    "rgb(156,39,176)",
+    "rgb(76,175,80)",
+];
+var instagramUser = "itgymnasietgoteborg";
 
-String.prototype.linkify = function() {
-    var str = this.replace(/(^|\s)@(\w+)/g, '$1<span class="post__caption--mention">@$2</span>');
-    return str.replace(/(^|\s)#(\w+)/g, '$1<span class="post__caption--hashtag">#$2</span>');
-};
+function getInstagramFeed(user) {
+    $.ajax({
+        url: "https://itgapp.azurewebsites.net/api/v1/instafeed/" + user,
+        method: "GET",
+        success: function(data) {
+            $("#feed .post").remove();
+            data.forEach(function(post, index) {
+                if (post.post.caption.text.html) {
+                    $("#feed").append('<div class="post post-hidden animated" data-insta-profile="' + post.user.username + '" data-insta-avatar="' + post.user.profile_picture + '"><img src="' + post.post.image + '" alt="' + post.post.id + '" draggable="false" class="post__image" /><p class="post__caption">' + post.post.caption.text.html + '</p></div>');
+                } else {
+                    $("#feed").append('<div class="post post-hidden animated" data-insta-profile="' + post.user.username + '" data-insta-avatar="' + post.user.profile_picture + '"><img src="' + post.post.image + '" alt="' + post.post.id + '" draggable="false" class="post__image" /></div>');
+                }
+            });
 
-var feed = new Instafeed({
-    clientId: "467ede5a6b9b48ae8e03f4e2582aeeb3",
-    get: "user",
-    userId: "510446258",
-    limit: postLimit,
-    target: "feed",
-    resolution: "standard_resolution",
-    template: '<div class="post post--hidden animated" data-insta-profile="{{model.user.username}}" data-insta-avatar="{{model.user.profile_picture}}"><img src="{{image}}" alt="{{model.user.username}}" draggable="false" class="post__image" /><p class="post__caption">{{caption}}</p></div>',
-    after: function() {
-        $(".post:not(.post:nth(0))").hide();
-
-        $(".post__caption").each(function(current) {
-            caption = $(this).html();
-            $(this).html(caption.linkify());
-        });
-
-        do_urls();
-    }
-});
-
-function getInstafeed() {
-    feed.run();
+            do_urls();
+        },
+        error: function(error) {
+            console.error(error);
+        }
+    });
 }
 
 var time = 0,
@@ -64,9 +58,9 @@ function showPost(n) {
     setTimeout(function() {
         $(".post:not(.post:nth(" + n + "))").hide();
         $(".post:nth(" + n + ")").show().removeClass(hideAnimation).addClass(showAnimation).addClass("post--active");
-        $(".account__name").text($(".post:nth(" + n + ")").attr("data-insta-profile"));
-        $(".account__avatar").attr("alt", $(".post:nth(" + n + ")").attr("data-insta-profile"));
-        $(".account__avatar").attr("src", $(".post:nth(" + n + ")").attr("data-insta-avatar"));
+        $(".account__name").text($(".post:nth(" + n + ")").data("insta-profile"));
+        $(".account__avatar").attr("alt", $(".post:nth(" + n + ")").data("insta-profile"));
+        $(".account__avatar").attr("src", $(".post:nth(" + n + ")").data("insta-avatar"));
     }, 300);
 
     $(".body").css("background-color", colors[color]);
@@ -77,8 +71,10 @@ function showPost(n) {
 }
 
 $(document).ready(function() {
-    getInstafeed();
-    instaInterval = setInterval(getInstafeed, 3 * 60 * 1000);
+    getInstagramFeed(instagramUser);
+    instaInterval = setInterval(function() {
+        getInstagramFeed(instagramUser);
+    }, 300000);
 
     $(".time__now--hour").text(moment().locale("sv").format("HH"));
     $(".time__now--minute").text(moment().locale("sv").format("mm"));
