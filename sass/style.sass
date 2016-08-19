@@ -1,134 +1,120 @@
 @import url(animate.min.css)
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300)
 
-$blue: #125688
-$red: #EF5350
-$grey: #212121
-$white: #EEEEEE
-
 :root
-    font-size: 20px
-    font-family: 'Open Sans', sans-serif
-    font-weight: 400
+	font-family: 'Open Sans', sans-serif
+	font-size: 20px
+	font-weight: 400
 
-.html
-    height: 100vh
-
-.html, .body
-    margin: 0
-    padding: 0
-
-.body
-    background-color: $red
-    color: $grey
-    overflow: hidden
-    transition: background-color .5s
+html, body
+	width: 100%
+	height: 100%
+	margin: 0
+	padding: 0
+	background-color: #ECEFF1
 
 .posts
-    position: relative
-    width: 100%
-    height: 100%
-
+	height: 100%
     display: flex
-    justify-content: center
-    align-items: center
-
-.post
-    background-color: #FFFFFF
-    border-radius: 10px
-    overflow: hidden
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 5px 0 rgba(0,0,0,.23)
-
-    display: flex
-    justify-content: center
-    align-items: center
     flex-direction: row
-
-.post--active
-    display: block
-
-.post--hidden
-    display: none
+    justify-content: center
+    align-items: center
 
 .post
-    max-width: 75vw
-    display: flex
+	width: 75%
+	min-height: 500px
+	margin: auto
+	border-radius: 2px
+	background-color: #FFF
+	box-shadow: 0 10px 10px 0 rgba(0,0,0,.19), 0 6px 3px 0 rgba(0,0,0,.23)
 
-.post__image
-    min-width: calc(50% + 20px)
-    float: left
+.post-header
+	width: 100%
+	height: 75px
+	margin: 0
+	padding: 0
+	border-bottom: 1px solid rgba(0, 0, 0, 0.35)
+	display: flex
+	flex-direction: row
+	justify-content: flex-start
+	align-content: flex-start
 
-.post__caption
-    height: 100%
-    min-width: calc(50% - 20px)
-    margin: 5px
-    padding: 10px
-    font-size: 1.2rem
+.post-header__profile-picture
+	width: 75px
+	height: 75px
+	background-size: cover
+
+.post-header__username
+	margin: 0 10px
+	line-height: 75px
+
+.post-header__likes-comments
+	width: 208px
+	margin-left: auto
+
+.likes-comments__comments, .likes-comments__likes
+	width: 100px
+	border-left: 1px solid rgba(0, 0, 0, 0.35)
+	text-align: center
+	line-height: 75px
+	display: inline-block
+
+.post-content
+	width: 100%
+	min-height: 750px
+	display: flex
+
+.post-content__image
+	width: 100%
+	height: 
+	background-size: cover
+
+.post-content__caption
+	width: calc(100% - 40px)
+	min-height: 750px
+	padding: 10px
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-content: center
+
+.caption-text
+	margin-top: -25px
+	font-size: 1.2rem
     letter-spacing: 3px
     text-indent: 3px
     text-align: center
     line-height: 2rem
+	text-align: center
 
-.mention, .hashtag
-    padding: 1px
-    margin: 1px
-    border-radius: 5px
-    background-color: darken($white, 5)
+.post-footer
+	width: 100%
+	height: 50px
+	margin: 0
+	padding: 0
+	border-top: 1px solid rgba(0, 0, 0, 0.35)
+	display: flex
+	flex-direction: row
+	justify-content: flex-start
+	align-content: flex-start
 
-.account
-    position: fixed
-    left: 10px
-    padding: 5px
-    background-color: #FFFFFF
-    font-size: 1.25rem
-    text-align: center
-    border-radius: 5px
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 5px 0 rgba(0,0,0,.23)
+.post-footer__users-liked, .post-footer__users-commented
+	width: 100%
 
-.account__avatar
-    width: 40px
-    vertical-align: middle
-    border-radius: 50%
+.user-liked__profile-picture, .user-commented__profile-picture
+	width: 50px
+	height: 50px
+	background-size: cover
+	display: inline-block
 
-.time
-    position: fixed
-    right: 10px
-    padding: 5px
-    background-color: #FFFFFF
-    font-size: 1.25rem
-    text-align: center
-    border-radius: 5px
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 5px 0 rgba(0,0,0,.23)
+.user-liked
+	span, h2, p 
+		margin: 0
+		padding: 0
+		line-height: 50px
+		display: inline
 
-.time__now--separator
-    animation: clock .5s linear infinite alternate
-
-.footer
-    position: fixed
-    bottom: 5px
-    right: 5px
-    padding: 5px
-    background-color: #FFFFFF
-    font-size: 0.4rem
-    border-radius: 5px
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 5px 0 rgba(0,0,0,.23)
-
-.fa-instagram
-    color: $blue
-
-.fa-heart
-    color: $red
-
-.fa-clock-o
-    color: #2E7D32
-
-@keyframes clock
-    0%
-        color: $grey
-
-    100%
-        color: transparent
-
-@media (min-width: 800px)
-    .post__image
-        width: 35.5vw
+.user-liked__username, .user-commented__username, .user-commented__comment
+	vertical-align: top
+	line-height: 50px
+	display: inline

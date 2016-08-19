@@ -1,31 +1,60 @@
 <!DOCTYPE html>
-<html class="html">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ITG-Instafeed</title>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		
+		<title>ITGFeed</title>
 
-        <!-- JS -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/style.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://use.fontawesome.com/d077cb952f.js"></script>
         <script src="js/moment.min.js"></script>
         <script src="js/main.js"></script>
-
-        <!-- CSS -->
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-    </head>
-    <body class="html body">
-        <h1 class="account">
-            <span class="fa fa-instagram fa-lg"></span> <span class="account__name"></span> <img class="account__avatar" />
-        </h1>
-        <h1 class="time">
-            <span class="fa fa-clock-o"></span> <span class="time__now--hour">13</span><span class="time__now--separator">:</span><span class="time__now--minute">37</span>
-        </h1>
-        <div class="posts">
-            <div id="feed"></div>
-        </div>
-        <h1 class="footer">
-            Gjord med <span class="fa fa-heart"></span> av Joel Eriksson
-        </h1>
-    </body>
+	</head>
+	<body>
+		<div class="posts">
+			<div class="post">
+				<div class="post-header">
+					<div class="post-header__profile-picture" style="background-image: url('https://scontent.cdninstagram.com/t51.2885-19/s150x150/12120454_505994662903825_1370151292_a.jpg');"></div>
+					<h1 class="post-header__username">
+						<span class="fa fa-instagram"></span>
+						<span class="username__instagram">itgymnasietgoteborg</span>
+					</h1>
+					<div class="post-header__likes-comments">
+						<div class="likes-comments__comments">
+							<span class="fa fa-comment-o"></span>
+							<span class="comments-count">1</span>
+						</div>
+						<div class="likes-comments__likes">
+							<span class="fa fa-heart-o"></span>
+							<span class="likes-count">50</span>
+						</div>
+					</div>
+				</div>
+				<div class="post-content">
+					<div class="post-content__image" style="background-image: url('https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/14072758_1287095731301310_1393514576_n.jpg?ig_cache_key=MTMxOTU4NzgwOTU3MjU5ODc2Nw%3D%3D.2');"></div>
+					<div class="post-content__caption">
+						<p class="caption-text">Alen och Nasir jobbar på inför skolstarten. Kommer soffan gå in i hissen?! <span class="hashtag">#itgymnasiet</span> <span class="hashtag">#itgymnasietgoteborg</span> <span class="hashtag">#weloveit</span></p>
+					</div>
+				</div>
+				<div class="post-footer">
+					<div class="post-footer__users-liked">
+						<div class="user-liked">
+							<div class="user-liked__profile-picture" style="background-image: url('https://scontent-arn2-1.cdninstagram.com/t51.2885-15/s750x750/sh0.08/e35/13694369_1774901739414754_230460363_n.jpg?ig_cache_key=MTMxMzAyNzE1NjAzNjk5MDU1Nw%3D%3D.2')"></div>
+							<h2 class="user-liked__username">emilisviktoris</h2>
+						</div>
+					</div>
+					<div class="post-footer__users-commented">
+						<div class="user-commented">
+							<div class="user-commented__profile-picture" style="background-image: url('https://scontent.cdninstagram.com/t51.2885-19/s150x150/12940751_1589032058080757_228588851_a.jpg');"></div>
+							<h2 class="user-commented__username">zackiiis</h2>
+							<p class="user-commented__comment">heja heja 👏🏼💪🏼</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
