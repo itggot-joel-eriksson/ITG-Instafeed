@@ -51,12 +51,11 @@ $white: #EEEEEE
     display: none
 
 .post
-    width: 75vw
-
+    max-width: 75vw
     display: flex
 
 .post__image
-    min-width: 50%
+    min-width: calc(50% + 20px)
     float: left
 
 .post__caption
@@ -70,7 +69,7 @@ $white: #EEEEEE
     text-align: center
     line-height: 2rem
 
-.post__caption--mention, .post__caption--hashtag
+.mention, .hashtag
     padding: 1px
     margin: 1px
     border-radius: 5px
